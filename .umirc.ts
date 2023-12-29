@@ -1,7 +1,20 @@
 import { defineConfig } from '@umijs/max';
+import { theme } from 'antd';
 
 export default defineConfig({
-  antd: {},
+  antd: {
+    dark: true,
+    configProvider: {
+
+      theme:{
+        algorithm: theme.darkAlgorithm,
+
+        token: {
+          defaultBg: "rgb(82, 196, 26)"
+        }
+      },
+    }
+  },
   access: {},
   model: {},
   initialState: {},
@@ -11,12 +24,17 @@ export default defineConfig({
   },
   routes: [
     {
+      name: '登录',
       path: '/',
-      redirect: '/home',
+      redirect: './Login',
     },
+    // {
+    //   path: '/',
+    //   redirect: './Home',
+    // },
     {
       name: '首页',
-      path: '/home',
+      path: '/Home',
       component: './Home',
     },
     {
@@ -28,6 +46,11 @@ export default defineConfig({
       name: ' CRUD 示例',
       path: '/table',
       component: './Table',
+    },
+    {
+      name: 'tets',
+      path: '/test',
+      component: './Test',
     },
   ],
   npmClient: 'pnpm',
