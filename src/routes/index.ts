@@ -8,8 +8,8 @@ export default [
   {
     name: '镜头抽取',
     icon: 'CameraOutlined',
-    path: '/access',
-    component: './Access',
+    path: '/shotExtraction',
+    component: './ShotExtraction',
   },
   {
     name: ' 人脸提取',
