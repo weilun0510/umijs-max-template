@@ -1,5 +1,5 @@
 import { history } from '@umijs/max';
-import { Button, Col, Form, Input, theme } from 'antd';
+import { Button, Col, Flex, Form, Input, theme } from 'antd';
 
 import s from './index.less';
 
@@ -23,32 +23,32 @@ const Login: React.FC = () => {
   // };
 
   return (
-    <div className={s.login}>
+    <Flex align="center" className={s.login}>
       <Col span={7} offset={4}>
-        <div style={{ fontSize: 55, marginBottom: 80 }}>AI人脸重建操作系统</div>
+        <div className={s.name}>AI人脸重建操作系统</div>
         <Form layout="vertical" form={form} onFinish={onFinish}>
           <Form.Item
             label="用户名"
             name="username"
             rules={[{ required: true, message: '请输入用户名' }]}
           >
-            <Input placeholder="请输入用户名" />
+            <Input placeholder="请输入用户名" size="large" />
           </Form.Item>
           <Form.Item
             label="密码"
             name="password"
             rules={[{ required: true, message: '请输入密码' }]}
           >
-            <Input type="password" placeholder="请输入密码" />
+            <Input type="password" placeholder="请输入密码" size="large" />
           </Form.Item>
           <Form.Item wrapperCol={{ span: 8 }}>
-            <Button type="primary" block htmlType="submit">
+            <Button type="primary" block htmlType="submit" size="large">
               登录
             </Button>
           </Form.Item>
         </Form>
       </Col>
-    </div>
+    </Flex>
   );
 };
 

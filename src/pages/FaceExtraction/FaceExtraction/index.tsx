@@ -1,4 +1,3 @@
-import { PageContainer } from '@ant-design/pro-components';
 import { theme } from 'antd';
 
 const { useToken } = theme;
@@ -15,12 +14,7 @@ const HomePage: React.FC = () => {
     // backgroundColor: token.defaultBg,
   };
 
-  return (
-    <PageContainer ghost>
-      <h1>test</h1>
-      <div style={style}>11111111111</div>
-    </PageContainer>
-  );
+  return <div style={style}>11111111111</div>;
 };
 
 export default HomePage;

@@ -1,12 +1,14 @@
 // 运行时配置
+import customizeTheme from '@/styles/theme';
 import { RuntimeConfig, createGlobalStyle } from '@umijs/max';
 import { Dropdown, theme } from 'antd';
+import './global.less';
 
 const { getDesignToken } = theme;
 
 // 通过静态方法获取
-const globalToken = getDesignToken();
-console.log('globalToken: ', globalToken.colorTextBase);
+const globalToken = getDesignToken(customizeTheme);
+console.log('globalToken: ', globalToken);
 
 // 全局初始化数据配置，用于 Layout 用户信息和权限初始化
 // 更多信息见文档：https://umijs.org/docs/api/runtime-config#getinitialstate
@@ -56,7 +58,7 @@ export const styledComponents = {
     #root {
       width: 100%;
       height: 100%;
-      color: #fff;
+      color: ${globalToken.colorTextBase};
       background: ${globalToken.colorBgBase};
     }
   `,

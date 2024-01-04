@@ -1,24 +1,14 @@
 import { defineConfig } from '@umijs/max';
-import { theme } from 'antd';
+import pxToViewPort from 'postcss-px-to-viewport';
+import customizeTheme from './src/styles/theme';
+
 import routes from './src/routes';
 
 export default defineConfig({
   antd: {
     dark: true,
     configProvider: {
-      theme: {
-        algorithm: theme.darkAlgorithm,
-
-        token: {
-          // defaultBg: "rgb(82, 196, 26)"
-        },
-        components: {
-          Form: {
-            /* 这里是你的组件 token */
-            itemMarginBottom: 32,
-          },
-        },
-      },
+      theme: customizeTheme,
     },
   },
   access: {},
@@ -32,4 +22,24 @@ export default defineConfig({
   styledComponents: {},
   routes,
   npmClient: 'pnpm',
+  // TODO: 如果没用icons，记得删掉
+  icons: {},
+  extraPostCSSPlugins: [
+    pxToViewPort({
+      unitToConvert: 'px',
+      viewportWidth: 1920,
+      unitPrecision: 5,
+      propList: ['*'],
+      viewportUnit: 'vw',
+      fontViewportUnit: 'vw',
+      selectorBlackList: [],
+      minPixelValue: 1,
+      mediaQuery: false,
+      replace: true,
+      exclude: [/node_modules/],
+      landscape: false,
+      landscapeUnit: 'vw',
+      landscapeWidth: 568,
+    }),
+  ],
 });

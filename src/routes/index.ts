@@ -14,15 +14,42 @@ export default [
   {
     name: ' 人脸提取',
     icon: 'FacebookOutlined',
-    path: '/trainModel',
-    // component: './TrainModel',
+    path: '/faceExtraction',
     routes: [
       {
         name: '人脸提取模型训练',
-        path: '/trainModel/ss',
-        component: './TrainModel',
+        path: '/faceExtraction/trainModel',
+        component: './FaceExtraction/TrainModel',
+      },
+      {
+        name: '人脸提取',
+        path: '/faceExtraction/faceExtraction',
+        component: './FaceExtraction/FaceExtraction',
       },
     ],
+  },
+  {
+    name: ' 人脸重建',
+    icon: 'VideoCameraOutlined',
+    path: '/faceExtraction',
+    routes: [
+      {
+        name: '人脸重建模型训练',
+        path: '/faceExtraction/trainModel',
+        component: './FaceExtraction/TrainModel',
+      },
+      {
+        name: '人脸合成输出',
+        path: '/faceExtraction/faceExtraction',
+        component: './FaceExtraction/FaceExtraction',
+      },
+    ],
+  },
+  {
+    name: '系统设置',
+    icon: 'SettingOutlined',
+    path: '/systemSettings',
+    component: './SystemSettings',
   },
   {
     path: '/',

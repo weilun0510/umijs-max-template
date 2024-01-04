@@ -2,11 +2,11 @@
   "private": true,
   "author": "weilun0510 <13566106399@163.com>",
   "scripts": {
-    "dev": "max dev",
     "build": "max build",
+    "dev": "max dev",
     "format": "prettier --cache --write .",
-    "prepare": "husky install",
     "postinstall": "max setup",
+    "prepare": "husky install",
     "setup": "max setup",
     "start": "npm run dev"
   },
@@ -21,6 +21,7 @@
     "@types/react-dom": "^18.2.18",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.0",
+    "postcss-px-to-viewport": "^1.1.1",
     "prettier": "^3.1.1",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-packagejson": "^2.4.8",
