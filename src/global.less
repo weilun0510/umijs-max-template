@@ -6,3 +6,53 @@
 .ant-row {
   width: 100%;
 }
+
+.ant-pro-layout {
+  .ant-layout-header.ant-pro-layout-header {
+    border-block-end: none;
+  }
+
+  .ant-layout-sider {
+    .ant-layout-sider-children {
+      padding-block: 20px;
+      padding-inline: 10px;
+
+      .ant-pro-base-menu-inline-item-icon {
+        margin-right: 20px;
+      }
+
+      .ant-menu-item-selected {
+        background: linear-gradient(
+          92deg,
+          rgba(42, 100, 210, 35%) 0%,
+          rgba(78, 143, 243, 0%) 100%
+        );
+
+        &::before {
+          display: table;
+          content: '';
+          width: 3px;
+          height: 100%;
+          background: #4e8ff3;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+.ant-btn-primary {
+  border-right: none;
+}
+
+.ant-modal {
+  .ant-modal-body {
+    margin-top: 48px;
+    padding: 12px 0;
+  }
+
+  .ant-modal-footer {
+    text-align: center;
+  }
+}

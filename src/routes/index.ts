@@ -6,42 +6,25 @@ export default [
     component: './Home',
   },
   {
-    name: '镜头抽取',
-    icon: 'CameraOutlined',
-    path: '/shotExtraction',
-    component: './ShotExtraction',
-  },
-  {
-    name: ' 人脸提取',
+    name: '人脸提取',
     icon: 'FacebookOutlined',
     path: '/faceExtraction',
-    routes: [
-      {
-        name: '人脸提取模型训练',
-        path: '/faceExtraction/trainModel',
-        component: './FaceExtraction/TrainModel',
-      },
-      {
-        name: '人脸提取',
-        path: '/faceExtraction/faceExtraction',
-        component: './FaceExtraction/FaceExtraction',
-      },
-    ],
+    component: './FaceExtraction',
   },
   {
     name: ' 人脸重建',
     icon: 'VideoCameraOutlined',
-    path: '/faceExtraction',
+    path: '/faceRemodeling',
     routes: [
       {
         name: '人脸重建模型训练',
-        path: '/faceExtraction/trainModel',
-        component: './FaceExtraction/TrainModel',
+        path: '/faceRemodeling/trainModel',
+        component: './FaceRemodeling/TrainModel',
       },
       {
         name: '人脸合成输出',
-        path: '/faceExtraction/faceExtraction',
-        component: './FaceExtraction/FaceExtraction',
+        path: '/faceRemodeling/faceGeneration',
+        component: './FaceRemodeling/FaceGeneration',
       },
     ],
   },

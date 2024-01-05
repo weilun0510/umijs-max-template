@@ -13,77 +13,60 @@ const HomePage: React.FC = () => {
   const { name } = useModel('global');
   console.log('name: ', name);
 
-  const cardStyle: React.CSSProperties = {
-    height: 139,
-    backgroundSize: '100% auto',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundImage: `url(${IMG_1})`,
-    borderRadius: 8,
-    padding: '18px 24px',
-  };
-
-  const renderSectionTitle = (title: string) => (
-    <div style={{ fontSize: 24, fontWeight: '700' }}>{title}</div>
-  );
+  const GUTTER = 28;
 
   return (
-    <Row gutter={[0, 28]}>
-      <Card>
-        <Row>{renderSectionTitle('系统负载')}</Row>
-        <Row gutter={50} align={'middle'} style={{ width: '100%' }}>
-          <Col xxl={13} xl={13} lg={24}>
-            <Row gutter={[28, 28]} align={'middle'}>
-              {[50, 70, 33].map((x) => (
-                <Col key={x} xxl={8} xl={8} lg={12}>
-                  <HomeProgress />
-                </Col>
-              ))}
-            </Row>
-          </Col>
-          <Col xxl={11} xl={11} lg={24}>
-            <Row
-              gutter={[
-                { xxl: 28, xl: 28, lg: 20 },
-                { xxl: 28, xl: 28, lg: 20 },
-              ]}
-            >
-              <Col span={12}>
-                <Flex justify="space-between" vertical style={{ ...cardStyle }}>
-                  <div>CPU 核心数</div>
-                  <div>256核</div>
-                </Flex>
-              </Col>
-              <Col span={12}>
-                <Flex justify="space-between" vertical style={{ ...cardStyle }}>
-                  <div>CPU 核心数</div>
-                  <div>256核</div>
-                </Flex>
-              </Col>
-              <Col span={12}>
-                <Flex justify="space-between" vertical style={{ ...cardStyle }}>
-                  <div>CPU 核心数</div>
-                  <div>256核</div>
-                </Flex>
-              </Col>
-              <Col span={12}>
-                <Flex justify="space-between" vertical style={{ ...cardStyle }}>
-                  <div>CPU 核心数</div>
-                  <div>256核</div>
-                </Flex>
-              </Col>
-            </Row>
-          </Col>
+    <Row gutter={[0, GUTTER]}>
+      <Card title="系统负载" headStyle={{ fontSize: 24, fontWeight: 700 }}>
+        <Row>
+          <Row align={'middle'} gutter={[0, GUTTER]}>
+            <Col xxl={13} xl={24} lg={24}>
+              <Row gutter={[GUTTER, GUTTER]} align={'middle'}>
+                {[50, 70, 33].map((x) => (
+                  <Col key={x} xxl={8} xl={8} lg={8}>
+                    <Card style={{ backgroundColor: '#2A2A4A' }}>
+                      <HomeProgress />
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+            <Col xxl={11} xl={24} lg={24}>
+              <Row gutter={[GUTTER, GUTTER]} justify={'space-between'}>
+                {[1, 1, 2, 3].map((x) => (
+                  <Col xl={12} lg={12} md={12} key={x}>
+                    <Flex
+                      justify="space-between"
+                      vertical
+                      style={{
+                        height: 120,
+                        backgroundSize: '100% auto',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                        backgroundImage: `url(${IMG_1})`,
+                        borderRadius: 8,
+                        padding: '18px 24px',
+                      }}
+                    >
+                      <div>CPU 核心数</div>
+                      <div>256核</div>
+                    </Flex>
+                  </Col>
+                ))}
+              </Row>
+            </Col>
+          </Row>
         </Row>
       </Card>
 
-      {/* TODO: gutter */}
-      <Row gutter={28} justify={'space-between'}>
+      <Row>
         <Col span={8}>
-          <Row gutter={[0, 28]}>
-            <Card>
-              <Row>{renderSectionTitle('人脸提取')}</Row>
-              <Row>
+          <Row gutter={[0, GUTTER]}>
+            <Card
+              title="人脸提取"
+              headStyle={{ fontSize: 24, fontWeight: 700 }}
+            >
+              <Row gutter={[0, GUTTER / 2]}>
                 {[33, 44, 55].map((x, index) => (
                   <Col span={24} key={x}>
                     <Space>
@@ -124,8 +107,10 @@ const HomePage: React.FC = () => {
               </Row>
             </Card>
 
-            <Card>
-              <Row>{renderSectionTitle('人脸提取模型')}</Row>
+            <Card
+              title="人脸提取模型"
+              headStyle={{ fontSize: 24, fontWeight: 700 }}
+            >
               <Row>
                 <Col span={24}>
                   <Space size="large">
@@ -137,7 +122,7 @@ const HomePage: React.FC = () => {
                       </span>
                     </span>
                   </Space>
-                  <Space size="large">
+                  <Space size="large" style={{ marginTop: token.marginLG }}>
                     <span>范冰冰</span>
                     <span>
                       [12:00:00] | [210334] |{' '}
@@ -153,8 +138,32 @@ const HomePage: React.FC = () => {
         </Col>
 
         <Col span={16}>
-          <Card>
-            <Row>{renderSectionTitle('人脸重建系统')}</Row>
+          <Card
+            title="人脸重建系统"
+            headStyle={{ fontSize: 24, fontWeight: 700 }}
+            style={{
+              height: '100%',
+              marginLeft: GUTTER,
+              width: `calc(100% - ${GUTTER}px)`,
+            }}
+          >
+            <Space size="large">
+              <span>范冰冰</span>
+              <span>佟丽娅</span>
+              <span>
+                [12:00:00] | [210334] |{' '}
+                <span style={{ color: token.colorSuccess }}>[0.00125]</span> |{' '}
+                <span style={{ color: token.colorSuccess }}>[0.00125]</span>
+              </span>
+            </Space>
+
+            <div style={{ marginTop: token.marginLG }}>
+              <img
+                src={IMG_1}
+                style={{ width: '100%', maxHeight: 300 }}
+                alt=""
+              />
+            </div>
           </Card>
         </Col>
       </Row>

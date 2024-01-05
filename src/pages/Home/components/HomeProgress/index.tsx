@@ -1,17 +1,10 @@
-import { Progress, theme } from 'antd';
+import { Progress } from 'antd';
 import s from './index.less';
-const { useToken } = theme;
 
 const percent = 76;
 const HomeProgress: React.FC = () => {
-  const { token } = useToken();
   return (
-    <div
-      style={{
-        background: token.colorBgContainer,
-      }}
-      className={s.progressWrap}
-    >
+    <div className={s.progressWrap}>
       <Progress
         percent={percent}
         type="circle"

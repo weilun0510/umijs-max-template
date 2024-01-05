@@ -1,7 +1,9 @@
 // 运行时配置
+import ICON_LOGO from '@/assets/logo.png';
 import customizeTheme from '@/styles/theme';
-import { RuntimeConfig, createGlobalStyle } from '@umijs/max';
+import { RuntimeConfig, createGlobalStyle, history } from '@umijs/max';
 import { Dropdown, theme } from 'antd';
+
 import './global.less';
 
 const { getDesignToken } = theme;
@@ -16,10 +18,11 @@ export async function getInitialState(): Promise<{ name: string }> {
   return { name: '@umijs/max' };
 }
 
-// https://umijs.org/docs/max/layout-menu#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE
+// 菜单与布局：https://umijs.org/docs/max/layout-menu#%E8%BF%90%E8%A1%8C%E6%97%B6%E9%85%8D%E7%BD%AE
+// ProLayout 高级布局: https://pro-components-preview-pr-4734.surge.sh/components/layout
 export const layout: RuntimeConfig['layout'] = () => {
   return {
-    logo: 'https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg',
+    logo: ICON_LOGO,
     menu: {
       locale: false,
     },
@@ -38,6 +41,7 @@ export const layout: RuntimeConfig['layout'] = () => {
                   key: 'logout',
                   // icon: <LogoutOutlined />,
                   label: '退出登录',
+                  onClick: () => history.push('/'),
                 },
               ],
             }}
@@ -45,6 +49,24 @@ export const layout: RuntimeConfig['layout'] = () => {
             {dom}
           </Dropdown>
         );
+      },
+    },
+    // 通过 Token 修改样式
+    // https://pro-components-preview-pr-4734.surge.sh/components/layout/#%E9%80%9A%E8%BF%87-token-%E4%BF%AE%E6%94%B9%E6%A0%B7%E5%BC%8F
+    token: {
+      header: {
+        colorBgHeader: globalToken.colorBgContainer,
+      },
+      sider: {
+        colorMenuBackground: globalToken.colorBgContainer,
+        // 选中项不持支背景颜色渐变
+        // 相关讨论：https://github.com/ant-design/pro-components/discussions/8045
+        // colorBgMenuItemSelected: 'rgba(42,100,210,0.35)',
+      },
+      pageContainer: {
+        paddingInlinePageContainerContent: 22,
+        paddingBlockPageContainerContent: 22,
+        colorBgPageContainer: '#0A0C10',
       },
     },
 
