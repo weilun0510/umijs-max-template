@@ -1,0 +1,96 @@
+// ant-pro-table
+.xyProTable {
+  width: 100%;
+  height: 100%;
+
+  :global {
+    .ant-pro-table {
+      height: 100%;
+
+      .ant-pro-table-list-toolbar-container {
+        padding-block: 8px;
+      }
+
+      @media (max-width: 768px) {
+        .ant-pro-table-list-toolbar .ant-pro-table-list-toolbar-left {
+          margin-block-end: 0;
+        }
+      }
+
+      .ant-pro-card {
+        height: 100%;
+        background-color: transparent;
+
+        .ant-pro-card-body {
+          height: 100%;
+          padding-inline: 0;
+          padding-block: 0;
+        }
+      }
+
+      .ant-table-wrapper {
+        .ant-spin-nested-loading {
+          height: 100%;
+
+          .ant-spin-container {
+            height: 100%;
+          }
+        }
+      }
+
+      .ant-table {
+        position: absolute;
+        // 48px 是分页器的高度
+        height: calc(100% - 48px);
+        width: 100%;
+
+        .ant-table-container {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .ant-table-body {
+            flex: 1;
+            overflow: auto !important;
+
+            .ant-table-placeholder {
+              .ant-table-cell {
+                border-bottom: none;
+              }
+            }
+          }
+        }
+      }
+
+      // 虚拟列表
+      .ant-table-virtual {
+        position: absolute;
+        // 48px 是分页器的高度
+        height: calc(100% - 48px);
+        width: 100%;
+
+        .ant-table-container {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+
+          .ant-table-tbody-virtual {
+            flex: 1;
+          }
+
+          .ant-table-placeholder {
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+
+      .ant-pagination {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        z-index: 3;
+      }
+    }
+  }
+}
